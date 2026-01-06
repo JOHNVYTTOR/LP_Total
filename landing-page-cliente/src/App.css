@@ -8,7 +8,6 @@
   --gold: #d4af37;           /* Dourado para detalhes de luxo */
   --text-dark: #333;
   --light-gray: #f4f7f6;
-  --marble-bg: 
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,7 +27,7 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 .header-top {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 15px 0;
+  padding: 0; /* Padding leve para equilíbrio */
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
@@ -44,28 +43,39 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   align-items: center;
 }
 
+/* LOGO LADO A LADO */
 .logo-container {
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  flex-direction: row; /* Coloca imagem e texto lado a lado */
+  align-items: center;
+  gap: 12px;
 }
 
-.logo-text {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--primary-blue);
-  letter-spacing: -1px;
-  font-style: italic;
+.logo-img {
+  max-height: 100px; /* AUMENTADO: Logo maior */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-divider {
+  width: 1px;
+  height: 30px;
+  background-color: #ddd;
+  display: block; /* Divisória visual opcional */
 }
 
 .logo-sub {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #666;
+  letter-spacing: 1.5px;
+  color: #555;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 150px; /* Limita largura para quebrar linha se necessário */
 }
 
-.nav-menu { display: flex; gap: 30px; align-items: center; }
+/* MENU E TELEFONE */
+.nav-menu { display: flex; gap: 25px; align-items: center; }
 
 .nav-menu a {
   text-decoration: none;
@@ -88,23 +98,33 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 }
 .nav-menu a:hover::after { width: 100%; }
 
+/* Estilo do Telefone no Header */
+.header-phone {
+  display: flex;
+  align-items: center;
+  color: var(--text-dark);
+  font-weight: 900;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
 .btn-header-cta {
   background-color: var(--accent-blue);
   color: white !important;
-  padding: 10px 25px;
+  padding: 10px 24px;
   border-radius: 50px;
   font-weight: 700 !important;
   box-shadow: 0 4px 15px rgba(30, 92, 139, 0.3);
+  font-size: 0.9rem !important;
 }
 .btn-header-cta:hover { background-color: var(--primary-blue); transform: translateY(-2px); }
-.btn-header-cta::after { display: none; } /* Remove sublinhado do botão */
+.btn-header-cta::after { display: none; }
 
 /* --- HERO SECTION --- */
 .hero {
-  background-image: var(--marble-bg);
   background-size: cover;
   background-position: center;
-  padding: 100px 0;
+  padding: 30px 0 100px 0; /* REDUZIDO padding-top para diminuir espaço */
   position: relative;
 }
 
@@ -121,7 +141,6 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 60px;
-  align-items: center;
   position: relative;
   z-index: 2;
 }
@@ -155,7 +174,38 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 
 .cta-group { display: flex; gap: 15px; align-items: center; }
 
+/* --- Animação de Ondas Pulsantes --- */
+@keyframes pulse-green-ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 25px rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    /* A primeira sombra expande e fica transparente (a onda) */
+    /* A segunda sombra é a sombra fixa original do botão */
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
+  }
+}
+
+@keyframes pulse-green-ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 25px rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    /* A primeira sombra expande e fica transparente (a onda) */
+    /* A segunda sombra é a sombra fixa original do botão */
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
+  }
+}
+
+/* Atualizando o botão da Hero */
 .btn-large {
+  /* Mantenha as outras propriedades... */
   background-color: var(--whatsapp-green);
   color: white;
   padding: 18px 40px;
@@ -166,10 +216,20 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
   transition: all 0.3s ease;
+  
+  /* ADICIONE A ANIMAÇÃO AQUI: */
+  animation: pulse-green-ripple 2s infinite;
+  /* Remova a box-shadow fixa antiga, pois a animação agora cuida dela */
+  /* box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); <-- REMOVIDO */
 }
-.btn-large:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6); }
+
+/* Pausa a animação quando passa o mouse para focar no efeito de hover */
+.btn-large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6); /* Sombra de hover mais forte */
+  animation: none; /* Para de pulsar ao passar o mouse */
+}
 
 .trust-badge {
   margin-top: 40px;
@@ -185,13 +245,42 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 .badge-icon { background: #000; color: #f1c40f; padding: 5px 10px; font-weight: bold; border-radius: 4px; font-size: 0.8rem; }
 .badge-text { font-size: 0.9rem; font-weight: 600; color: #444; }
 
-.hero-img img {
-  width: 100%;
+.hero-img {
+  /* Puxa a coluna da imagem para cima */
+  margin-top: 3px; 
+  /* Centraliza a imagem principal e o selo verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-img {
+  width: 110%;
   border-radius: 20px;
-  box-shadow: 20px 20px 0px rgba(30, 92, 139, 0.1); /* Sombra sólida moderna */
+  box-shadow: 20px 20px 0px rgba(30, 92, 139, 0.1);
   transition: 0.3s;
 }
-.hero-img img:hover { transform: scale(1.02); }
+.main-img:hover { transform: scale(1.02); }
+
+
+.trust-badge {
+  margin-top: 25px; /* Espaço entre a imagem principal e o selo */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: fit-content;
+}
+
+/* Novo estilo para a mini logo */
+.badge-logo {
+  height: 35px; /* Ajuste a altura conforme necessário */
+  width: auto;
+  object-fit: contain;
+}
 
 /* --- SERVIÇOS (Modernizado) --- */
 .services-section {
@@ -231,7 +320,6 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 /* --- QUEM SOMOS --- */
 .about-section {
   padding: 100px 0;
-  background-image: var(--marble-bg);
   background-size: cover;
 }
 
@@ -306,5 +394,10 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   .hero-text p { margin: 0 auto 30px; }
   .cta-group, .badge-certification, .trust-badge { justify-content: center; }
   .nav-menu { display: none; } /* Mobile Menu Simples */
-  .logo-container { align-items: center; }
+  .logo-container { justify-content: center; }
+  .hero-img {
+    margin-top: 0; /* Remove a margem negativa no mobile */
+    order: -1; /* Opcional: joga a imagem para cima do texto no mobile */
+    margin-bottom: 40px;
+  }
 }

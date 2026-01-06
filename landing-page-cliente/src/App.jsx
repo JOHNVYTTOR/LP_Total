@@ -8,6 +8,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import fundoHero from './assets/fundoHeader.jpg';
+import logo from './assets/logo.png';
+import logoPisoclean from './assets/logoPisoclean.png';
+import heroImg from './assets/hero-img.jpg';
 
 function App() {
   const whatsappNumber = "5515997454234";
@@ -19,16 +22,24 @@ function App() {
       {/* --- HEADER --- */}
       <header className="header-top">
         <div className="container nav-flex">
+          {/* Logo e Texto Lado a Lado */}
           <div className="logo-container">
-            <span className="logo-text">Total</span>
-            <span className="logo-sub">Restauração de Pisos</span>
+            <img src={logo} alt="Total Restauração" className="logo-img" />
+            <div className="logo-divider"></div>
+            <span className="logo-sub">Restauração de Pisos e Pedras</span>
           </div>
           
           <nav className="nav-menu">
             <a href="#inicio">Início</a>
             <a href="#servicos">Serviços</a>
             <a href="#sobre">Empresa</a>
-            {/* Botão de Destaque no Menu */}
+            
+            {/* Telefone Adicionado */}
+            <div className="header-phone">
+              <span style={{marginRight:'5px'}}></span> 
+              (15) 99745-4234
+            </div>
+
             <a href={whatsappLink} className="btn-header-cta">
               Orçamento Rápido
             </a>
@@ -38,15 +49,14 @@ function App() {
 
       {/* --- HERO SECTION --- */}
       <section 
-  className="hero" 
-  id="inicio" 
-  style={{ backgroundImage: `url(${fundoHero})` }} /* <--- ADICIONE ISSO */
->
+        className="hero" 
+        id="inicio" 
+        style={{ backgroundImage: `url(${fundoHero})` }}
+      >
         <div className="container hero-grid">
           <div className="hero-text">
-            <span className="hero-tag">✨ Especialistas em Alto Padrão</span>
-            <h1>Seu piso de Mármore novo de novo.</h1>
-            <p>Não troque seu piso. Nós recuperamos o brilho original de mármores, granitos e pedras naturais com tecnologia italiana sem poeira.</p>
+            <h1>A melhor solução para o seu piso.</h1>
+            <p>A TOTAL faz com que você <b>não precise trocar o seu piso</b>. Nós <b>recuperamos o brilho original</b> de mármores, granitos e pedras naturais com <b>profissionalismo e qualidade</b>.</p>
             
             <div className="cta-group">
               <a href={whatsappLink} className="btn-large">
@@ -54,16 +64,18 @@ function App() {
                 Quero um Orçamento
               </a>
             </div>
-
-            <div className="trust-badge">
-              <div className="badge-icon">PisoClean</div>
-              <span className="badge-text">Única certificada em Sorocaba</span>
-            </div>
+            {/* O trust-badge foi removido daqui */}
           </div>
 
           <div className="hero-img">
-            {/* Imagem de alta qualidade de um ambiente luxuoso restaurado */}
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000" alt="Sala com Piso de Mármore Restaurado" />
+            <img src={heroImg} alt="Sala com Piso de Mármore Restaurado" className="main-img" />
+            
+            {/* O trust-badge foi movido para cá */}
+            <div className="trust-badge">
+              {/* O texto foi substituído pela imagem */}
+              <img src={logoPisoclean} alt="Logo PisoClean" className="badge-logo" />
+              <span className="badge-text">Empresa certificada PISOCLEAN</span>
+            </div>
           </div>
         </div>
       </section>
@@ -192,10 +204,11 @@ function App() {
         </div>
       </footer>
 
-      {/* Botão Flutuante (Pulsante) */}
+      {/* Botão Flutuante (Logo Oficial) */}
       <a href={whatsappLink} className="whatsapp-float" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.001.574 2.146.89 3.32.89 2.66 0 4.814-1.722 5.567-4.225.267-.9.378-1.84.228-2.766-.46-2.614-2.812-4.577-5.553-4.836-.263-.024-.518-.013-.756-.013zm0-2c3.048 0 5.897 1.185 8.049 3.338 2.152 2.153 3.337 5.002 3.337 8.05 0 2.271-.659 4.385-1.815 6.19l1.417 5.176-5.297-1.39c-1.745 1.026-3.791 1.624-5.969 1.624-6.273 0-11.378-5.105-11.378-11.378 0-3.049 1.185-5.898 3.337-8.051 2.153-2.152 5.002-3.337 8.05-3.337z"/>
+        {/* SVG Oficial do WhatsApp (Bootstrap Icons) */}
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.601 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
       </a>
     </div>
