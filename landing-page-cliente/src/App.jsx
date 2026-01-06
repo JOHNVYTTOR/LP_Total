@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import fundoHero from './assets/fundoHeader.jpg';
 
 function App() {
   const whatsappNumber = "5515997454234";
@@ -36,7 +37,11 @@ function App() {
       </header>
 
       {/* --- HERO SECTION --- */}
-      <section className="hero" id="inicio">
+      <section 
+  className="hero" 
+  id="inicio" 
+  style={{ backgroundImage: `url(${fundoHero})` }} /* <--- ADICIONE ISSO */
+>
         <div className="container hero-grid">
           <div className="hero-text">
             <span className="hero-tag">✨ Especialistas em Alto Padrão</span>
