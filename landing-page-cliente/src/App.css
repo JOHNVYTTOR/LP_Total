@@ -1,11 +1,10 @@
-/* Importando fontes modernas: Montserrat (Títulos) e Open Sans (Texto) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-  --primary-blue: #0f3460;   /* Azul Profundo Premium */
-  --accent-blue: #1e5c8b;    /* Azul Institucional */
+  --primary-blue: #0f3460;
+  --accent-blue: #1e5c8b;
   --whatsapp-green: #25d366;
-  --gold: #d4af37;           /* Dourado para detalhes de luxo */
+  --gold: #990f0f;
   --text-dark: #333;
   --light-gray: #f4f7f6;
 }
@@ -23,11 +22,10 @@ body {
 
 h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 
-/* --- HEADER "GLASS" (Efeito Vidro) --- */
 .header-top {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 0; /* Padding leve para equilíbrio */
+  padding: 12px 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
@@ -43,16 +41,15 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   align-items: center;
 }
 
-/* LOGO LADO A LADO */
 .logo-container {
   display: flex;
-  flex-direction: row; /* Coloca imagem e texto lado a lado */
+  flex-direction: row;
   align-items: center;
   gap: 12px;
 }
 
 .logo-img {
-  max-height: 100px; /* AUMENTADO: Logo maior */
+  max-height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -61,7 +58,7 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   width: 1px;
   height: 30px;
   background-color: #ddd;
-  display: block; /* Divisória visual opcional */
+  display: block;
 }
 
 .logo-sub {
@@ -71,10 +68,9 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   color: #555;
   font-weight: 700;
   line-height: 1.2;
-  max-width: 150px; /* Limita largura para quebrar linha se necessário */
+  max-width: 150px;
 }
 
-/* MENU E TELEFONE */
 .nav-menu { display: flex; gap: 25px; align-items: center; }
 
 .nav-menu a {
@@ -98,13 +94,12 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 }
 .nav-menu a:hover::after { width: 100%; }
 
-/* Estilo do Telefone no Header */
 .header-phone {
   display: flex;
   align-items: center;
   color: var(--text-dark);
-  font-weight: 900;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   margin-right: 10px;
 }
 
@@ -120,15 +115,13 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 .btn-header-cta:hover { background-color: var(--primary-blue); transform: translateY(-2px); }
 .btn-header-cta::after { display: none; }
 
-/* --- HERO SECTION --- */
 .hero {
   background-size: cover;
   background-position: center;
-  padding: 30px 0 100px 0; /* REDUZIDO padding-top para diminuir espaço */
+  padding: 60px 0 100px 0;
   position: relative;
 }
 
-/* Overlay suave para melhorar leitura */
 .hero::before {
   content: '';
   position: absolute;
@@ -174,38 +167,13 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 
 .cta-group { display: flex; gap: 15px; align-items: center; }
 
-/* --- Animação de Ondas Pulsantes --- */
 @keyframes pulse-green-ripple {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 25px rgba(37, 211, 102, 0.4);
-  }
-  70% {
-    /* A primeira sombra expande e fica transparente (a onda) */
-    /* A segunda sombra é a sombra fixa original do botão */
-    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 25px rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4); }
 }
 
-@keyframes pulse-green-ripple {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 25px rgba(37, 211, 102, 0.4);
-  }
-  70% {
-    /* A primeira sombra expande e fica transparente (a onda) */
-    /* A segunda sombra é a sombra fixa original do botão */
-    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 25px rgba(37, 211, 102, 0.4);
-  }
-}
-
-/* Atualizando o botão da Hero */
 .btn-large {
-  /* Mantenha as outras propriedades... */
   background-color: var(--whatsapp-green);
   color: white;
   padding: 18px 40px;
@@ -217,54 +185,33 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   align-items: center;
   gap: 10px;
   transition: all 0.3s ease;
-  
-  /* ADICIONE A ANIMAÇÃO AQUI: */
-  animation: pulse-green-ripple 2s infinite;
-  /* Remova a box-shadow fixa antiga, pois a animação agora cuida dela */
-  /* box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); <-- REMOVIDO */
 }
 
-/* Pausa a animação quando passa o mouse para focar no efeito de hover */
-.btn-large:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6); /* Sombra de hover mais forte */
-  animation: none; /* Para de pulsar ao passar o mouse */
-}
+.pulse-btn { animation: pulse-green-ripple 2s infinite; }
 
-.trust-badge {
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  width: fit-content;
+.btn-large:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+  animation: none;
 }
-.badge-icon { background: #000; color: #f1c40f; padding: 5px 10px; font-weight: bold; border-radius: 4px; font-size: 0.8rem; }
-.badge-text { font-size: 0.9rem; font-weight: 600; color: #444; }
 
 .hero-img {
-  /* Puxa a coluna da imagem para cima */
-  margin-top: 3px; 
-  /* Centraliza a imagem principal e o selo verticalmente */
+  margin-top: -30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .main-img {
-  width: 110%;
+  width: 100%;
   border-radius: 20px;
   box-shadow: 20px 20px 0px rgba(30, 92, 139, 0.1);
   transition: 0.3s;
 }
 .main-img:hover { transform: scale(1.02); }
 
-
 .trust-badge {
-  margin-top: 25px; /* Espaço entre a imagem principal e o selo */
+  margin-top: 25px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -275,14 +222,14 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   width: fit-content;
 }
 
-/* Novo estilo para a mini logo */
 .badge-logo {
-  height: 35px; /* Ajuste a altura conforme necessário */
+  height: 35px;
   width: auto;
   object-fit: contain;
 }
 
-/* --- SERVIÇOS (Modernizado) --- */
+.badge-text { font-size: 0.9rem; font-weight: 600; color: #444; }
+
 .services-section {
   background-color: var(--primary-blue);
   padding: 80px 0;
@@ -294,16 +241,23 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: white; }
 .section-header p { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
 
-/* Swiper Customização */
 .swiper-button-next, .swiper-button-prev { color: white !important; background: rgba(255,255,255,0.1); width: 50px; height: 50px; border-radius: 50%; backdrop-filter: blur(5px); }
 .swiper-button-next::after, .swiper-button-prev::after { font-size: 1.2rem !important; font-weight: bold; }
 .swiper-pagination-bullet-active { background: var(--gold) !important; }
+
+.swiper-slide {
+  height: auto !important;
+  display: flex;
+}
 
 .service-card {
   background: white;
   border-radius: 15px;
   overflow: hidden;
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   transition: 0.3s;
   border-bottom: 5px solid transparent;
 }
@@ -311,13 +265,16 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 
 .service-card img { height: 220px; width: 100%; object-fit: cover; }
 
-.card-content { padding: 25px; text-align: left; }
+.card-content { 
+  padding: 25px; 
+  text-align: left; 
+  flex-grow: 1;
+}
 .card-content h3 { color: var(--primary-blue); font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
 .card-content p { font-size: 0.95rem; color: #666; margin-bottom: 20px; }
 .card-link { color: var(--accent-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
 .card-link:hover { text-decoration: underline; }
 
-/* --- QUEM SOMOS --- */
 .about-section {
   padding: 100px 0;
   background-size: cover;
@@ -342,9 +299,8 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
 .about-card-photo h3 { color: var(--primary-blue); font-weight: 800; margin-bottom: 5px; }
 .about-card-photo span { color: #888; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; }
 
-/* --- FOOTER --- */
 .footer {
-  background-color: #051a2e; /* Quase preto azulado */
+  background-color: #051a2e;
   color: white;
   padding: 80px 0 30px;
 }
@@ -376,28 +332,17 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   z-index: 2000;
   transition: 0.3s;
-  animation: pulse 2s infinite;
+  animation: pulse-green-ripple 3s infinite;
 }
 .whatsapp-float:hover { transform: scale(1.1); }
 .whatsapp-float svg { width: 35px; fill: white; }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-/* Responsivo */
 @media (max-width: 768px) {
   .hero-grid, .about-grid { grid-template-columns: 1fr; text-align: center; }
   .hero-text h1 { font-size: 2.5rem; }
   .hero-text p { margin: 0 auto 30px; }
-  .cta-group, .badge-certification, .trust-badge { justify-content: center; }
-  .nav-menu { display: none; } /* Mobile Menu Simples */
+  .cta-group, .trust-badge { justify-content: center; }
+  .nav-menu { display: none; }
   .logo-container { justify-content: center; }
-  .hero-img {
-    margin-top: 0; /* Remove a margem negativa no mobile */
-    order: -1; /* Opcional: joga a imagem para cima do texto no mobile */
-    margin-bottom: 40px;
-  }
+  .hero-img { margin-top: 0; order: -1; margin-bottom: 40px; }
 }
