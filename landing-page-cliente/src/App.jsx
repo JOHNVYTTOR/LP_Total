@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 import './App.css'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,12 +7,12 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import fundoHero from './assets/fundoHeader.jpg';
 import logo from './assets/logo.png';
 import logoPisoclean from './assets/logoPisoclean.png';
 import heroImg from './assets/hero-img.jpg';
 
-// NOVAS IMPORTAÇÕES DE IMAGENS LOCAIS
 import imgMarmore from './assets/marmore.jpg';
 import imgPiscina from './assets/piscina.jpg';
 import imgPorcelanato from './assets/porcelanato.jpg';
@@ -22,10 +23,44 @@ function App() {
   const whatsappNumber = "5515997454234";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20vi%20o%20site%20e%20gostaria%20de%20um%20orçamento%20para%20restauração.`;
 
+  const location = useLocation();
+
+  const pageConfig = {
+    '/': {
+      title: "A melhor solução para o seu piso.",
+      text: <>A TOTAL faz com que você <b>não precise trocar o seu piso</b>. Nós <b>recuperamos o brilho original</b> de mármores, granitos e pedras naturais com <b>profissionalismo e qualidade</b>.</>,
+      heroImage: heroImg,
+      heroBackground: fundoHero
+    },
+    '/porcelanatos': {
+      title: "Seu Porcelanato Novo de Novo.",
+      text: <>Especialistas em <b>limpeza técnica e restauração de porcelanatos</b>. Removemos manchas, riscos superficiais e a película protetora pós-obra com tecnologia que não agride o piso.</>,
+      heroImage: imgPorcelanato,
+      heroBackground: fundoHero 
+    },
+    '/pedrasdepiscina': {
+      title: "Sua Piscina Livre de Limo e Manchas.",
+      text: <>Tratamento completo para <b>Pedra Mineira, Goiás e São Tomé</b>. Removemos o encardido profundo e aplicamos tratamento antiderrapante para segurança da sua família.</>,
+      heroImage: imgPiscina,
+      heroBackground: fundoHero 
+    },
+    '/pedrasornamentais': {
+      title: "Alto Brilho para Mármores e Granitos.",
+      text: <>Polimento técnico (Levigamento) para <b>restauração total</b> de pedras ornamentais. Eliminamos riscos e fechamos os poros da pedra para um brilho espelhado duradouro.</>,
+      heroImage: imgMarmore,
+      heroBackground: fundoHero 
+    }
+  };
+
+  const currentPath = location.pathname.endsWith('/') && location.pathname !== '/' 
+    ? location.pathname.slice(0, -1) 
+    : location.pathname;
+    
+  const content = pageConfig[currentPath.toLowerCase()] || pageConfig['/'];
+
   return (
     <div className="App">
       
-      {/* --- HEADER --- */}
       <header className="header-top">
         <div className="container nav-flex">
           <div className="logo-container">
@@ -35,12 +70,17 @@ function App() {
           </div>
           
           <nav className="nav-menu">
+            {/* NOVO LOCAL DO SELO (PEQUENO) */}
+            <div className="header-cert">
+               <img src={logoPisoclean} alt="Selo PisoClean" />
+               <span>Certificada</span>
+            </div>
+
             <a href="#inicio">Início</a>
             <a href="#servicos">Serviços</a>
             <a href="#sobre">Empresa</a>
             
             <div className="header-phone">
-              <span style={{marginRight:'5px'}}></span> 
               (15) 99745-4234
             </div>
 
@@ -51,16 +91,15 @@ function App() {
         </div>
       </header>
 
-      {/* --- HERO SECTION --- */}
       <section 
         className="hero" 
         id="inicio" 
-        style={{ backgroundImage: `url(${fundoHero})` }}
+        style={{ backgroundImage: `url(${content.heroBackground})` }}
       >
         <div className="container hero-grid">
           <div className="hero-text">
-            <h1>A melhor solução para o seu piso.</h1>
-            <p>A TOTAL faz com que você <b>não precise trocar o seu piso</b>. Nós <b>recuperamos o brilho original</b> de mármores, granitos e pedras naturais com <b>profissionalismo e qualidade</b>.</p>
+            <h1>{content.title}</h1>
+            <p>{content.text}</p>
             
             <div className="cta-group">
               <a href={whatsappLink} className="btn-large pulse-btn">
@@ -71,17 +110,14 @@ function App() {
           </div>
 
           <div className="hero-img">
-            <img src={heroImg} alt="Sala com Piso de Mármore Restaurado" className="main-img" />
+            <img src={content.heroImage} alt="Restauração de Pisos" className="main-img" />
             
-            <div className="trust-badge">
-              <img src={logoPisoclean} alt="Logo PisoClean" className="badge-logo" />
-              <span className="badge-text">Empresa certificada PISOCLEAN</span>
-            </div>
+            {/* O SELO ANTIGO FOI REMOVIDO DAQUI */}
           </div>
         </div>
       </section>
 
-      {/* --- CARROSSEL DE SERVIÇOS --- */}
+      {/* ... (Resto do código permanece igual) ... */}
       <section className="services-section" id="servicos">
         <div className="container">
           <div className="section-header">
@@ -146,14 +182,13 @@ function App() {
         </div>
       </section>
 
-      {/* --- QUEM SOMOS --- */}
       <section className="about-section" id="sobre">
         <div className="container about-grid">
           <div className="about-text">
             <h2>15 Anos de Excelência</h2>
-            <p>Localizada em Sorocaba-SP, a <strong>Total Restauração</strong> se consolidou como referência técnica no tratamento de pisos e pedras ornamentais. Diferente de empresas de limpeza comum, nós entendemos a mineralogia da pedra e os riscos que certos "produtos caseiros" oferecem ao seu piso ou superfície.</p>
-            <p>Somos uma empresa certificada pela <strong>PISOCLEAN & PEK</strong>, garantindo que os produtos utilizados não agredirão o seu patrimônio.</p>
-            <p>Já restauramos <strong>mais de 10.000m²</strong> de pisos que estavam condenados à troca, gerando economia e valorização para o imóvel.</p>
+            <p>Localizada em Sorocaba-SP, a <strong>Total Restauração</strong> se consolidou como referência técnica no tratamento de pedras naturais. Diferente de empresas de limpeza comum, nós entendemos a mineralogia da pedra.</p>
+            <p>Somos a única empresa da região certificada pela <strong>PISOCLEAN & PEK</strong>, garantindo que os produtos utilizados não agredirão o seu patrimônio.</p>
+            <p>Já restauramos mais de 10.000m² de pisos que estavam condenados à troca, gerando economia e valorização para o imóvel.</p>
           </div>
           
           <div className="about-card-photo">
@@ -164,7 +199,6 @@ function App() {
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
       <footer className="footer">
         <div className="container">
           <div className="footer-top">
@@ -178,14 +212,26 @@ function App() {
             <div className="footer-col">
               <h4>ENDEREÇO</h4>
               <p>Atendemos em Domicílio</p>
-              <p>Sorocaba e Região</p>
-              <p>São Paulo Capital e Região</p>
+              <p>Sorocaba e Região (Votorantim, Itu, Salto)</p>
+              <p>São Paulo Capital (Grandes metragens)</p>
             </div>
 
             <div className="footer-col">
-              <h4>HORÁRIO</h4>
-              <p>Segunda a Sexta: 08h às 18h</p>
-              <p>Sábado: 08h às 12h</p>
+              <h4>REDES SOCIAIS</h4>
+              <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
+                <a href="https://www.instagram.com/totalrestauracao/" target="_blank" rel="noopener noreferrer" style={{color:'white', textDecoration:'none', display:'flex', alignItems:'center', gap:'8px'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                  </svg>
+                  Instagram
+                </a>
+                <a href="https://www.facebook.com/totalrestauracao" target="_blank" rel="noopener noreferrer" style={{color:'white', textDecoration:'none', display:'flex', alignItems:'center', gap:'8px'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                  </svg>
+                  Facebook
+                </a>
+              </div>
             </div>
           </div>
 
