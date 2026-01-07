@@ -33,7 +33,7 @@ function App() {
       heroBackground: fundoHero
     },
     '/porcelanatos': {
-      title: "Seu Porcelanato Novo de Novo.",
+      title: "A melhor solução para o seu porcelanato.",
       text: <>Especialistas em <b>limpeza técnica e restauração de porcelanatos</b>. Removemos manchas, riscos superficiais e a película protetora pós-obra com tecnologia que não agride o piso.</>,
       heroImage: imgPorcelanato,
       heroBackground: fundoHero 
@@ -45,7 +45,7 @@ function App() {
       heroBackground: fundoHero 
     },
     '/pedrasornamentais': {
-      title: "Alto Brilho para Mármores e Granitos.",
+      title: "A melhor solução para Mármores e Granitos.",
       text: <>Polimento técnico (Levigamento) para <b>restauração total</b> de pedras ornamentais. Eliminamos riscos e fechamos os poros da pedra para um brilho espelhado duradouro.</>,
       heroImage: imgMarmore,
       heroBackground: fundoHero 
