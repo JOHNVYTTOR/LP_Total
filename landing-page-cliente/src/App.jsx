@@ -22,7 +22,7 @@ import imgRoberto from './assets/roberto.jpg';
 
 function App() {
   const whatsappNumber = "5515997454234";
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20vi%20o%20site%20e%20gostaria%20de%20um%20orçamento%20para%20restauração.`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Ol%C3%A1!%20%3A)%20-%20enviado%20pelo%20site.%20`;
 
   const location = useLocation();
 
