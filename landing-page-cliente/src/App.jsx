@@ -19,6 +19,7 @@ import imgPorcelanato from './assets/porcelanato.jpg';
 import imgImpermeabilizacao from './assets/impermeabilizacao.jpg';
 import imgRoberto from './assets/roberto.jpg';
 
+
 function App() {
   const whatsappNumber = "5515997454234";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20vi%20o%20site%20e%20gostaria%20de%20um%20orçamento%20para%20restauração.`;
@@ -28,7 +29,7 @@ function App() {
   const pageConfig = {
     '/': {
       title: "A melhor solução para o seu piso.",
-      text: <>A TOTAL faz com que você <b>não precise trocar o seu piso</b>. Nós <b>recuperamos o brilho original</b> de mármores, granitos e pedras naturais com <b>profissionalismo e qualidade</b>.</>,
+      text: <>A TOTAL faz com que você <b>não precise trocar o seu piso</b>. Nós <b>recuperamos o brilho original</b> de mármores, granitos e pedras ornamentais com <b>profissionalismo e qualidade</b>.</>,
       heroImage: heroImg,
       heroBackground: fundoHero
     },
@@ -186,9 +187,9 @@ function App() {
         <div className="container about-grid">
           <div className="about-text">
             <h2>15 Anos de Excelência</h2>
-            <p>Localizada em Sorocaba-SP, a <strong>Total Restauração</strong> se consolidou como referência técnica no tratamento de pedras naturais. Diferente de empresas de limpeza comum, nós entendemos a mineralogia da pedra.</p>
-            <p>Somos a única empresa da região certificada pela <strong>PISOCLEAN & PEK</strong>, garantindo que os produtos utilizados não agredirão o seu patrimônio.</p>
-            <p>Já restauramos mais de 10.000m² de pisos que estavam condenados à troca, gerando economia e valorização para o imóvel.</p>
+            <p>Localizada em Sorocaba-SP, a <strong>Total Restauração</strong> se consolidou como referência técnica no tratamento de pisos e pedras ornamentais. Diferente de empresas de limpeza comum, nós entendemos a mineralogia da pedra e os riscos que "produtos caseiros" causam ao seu piso.</p>
+            <p>Somos uma empresa certificada pela <strong>PISOCLEAN & PEK</strong>, garantindo que os produtos utilizados não agredirão o seu patrimônio.</p>
+            <p>Já restauramos <strong>mais de 10.000m²</strong> de pisos que estavam condenados à troca, gerando economia e valorização para o imóvel.</p>
           </div>
           
           <div className="about-card-photo">
@@ -212,8 +213,8 @@ function App() {
             <div className="footer-col">
               <h4>ENDEREÇO</h4>
               <p>Atendemos em Domicílio</p>
-              <p>Sorocaba e Região (Votorantim, Itu, Salto)</p>
-              <p>São Paulo Capital (Grandes metragens)</p>
+              <p>Sorocaba e Região</p>
+              <p>São Paulo Capital e Região</p>
             </div>
 
             <div className="footer-col">
